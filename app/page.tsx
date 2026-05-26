@@ -1,10 +1,15 @@
-import Image from "next/image";
 import AutoPlayVideo from "./Components/AutoPlayVideo";
+import Section02 from "./Pages/Home/Section02";
+import Section03 from "./Pages/Home/Section03";
+import Section04 from "./Pages/Home/Section04";
+import Section05 from "./Pages/Home/Section05";
+import Section06 from "./Pages/Home/Section06";
+import Section07 from "./Pages/Home/Section07";
+import Footer from "./Components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden relative">
-      {/* Video - fixed behind, autoplays when user scrolls */}
+    <div>
       <AutoPlayVideo />
 
       {/* Hero - scrolls with page, video reveals behind as user scrolls */}
