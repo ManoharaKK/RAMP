@@ -1,62 +1,25 @@
-import Image from "next/image";
 import AutoPlayVideo from "./Components/AutoPlayVideo";
+import Section02 from "./Pages/Home/Section02";
+import Section03 from "./Pages/Home/Section03";
+import Section04 from "./Pages/Home/Section04";
+import Section05 from "./Pages/Home/Section05";
+import Section06 from "./Pages/Home/Section06";
+import Section07 from "./Pages/Home/Section07";
+import Footer from "./Components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden relative">
-      {/* Video - fixed behind, autoplays when user scrolls */}
+    <div>
       <AutoPlayVideo />
-
-      {/* Hero - scrolls with page, video reveals behind as user scrolls */}
-      <section className="relative min-h-screen z-10">
-        <div className="absolute inset-0">
-          <Image
-            src="/Images/Hero/Hero.JPG"
-            alt="Parkour"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
-
-        {/* Film grain - only over hero */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.03]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-          }}
-        />
-
-        <nav className="relative px-6 md:px-12 py-6 flex justify-between items-center">
-          <a href="/" className="font-[var(--font-bebas)] text-2xl md:text-3xl tracking-[0.2em]">
-            RAMP
-          </a>
-        </nav>
-
-        <main className="relative min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center px-6 text-center">
-        <p className="font-[var(--font-bebas)] text-sm md:text-base tracking-[0.4em] text-white/70 mb-4 uppercase">
-          Street Parkour
-        </p>
-        <h1 className="font-[var(--font-bebas)] text-[clamp(3rem,12vw,8rem)] leading-[0.95] tracking-tight">
-          COMING SOON
-        </h1>
-        <p className="mt-6 text-white/60 text-base md:text-lg max-w-md">
-          Something raw is dropping. Stay tuned.
-        </p>
-        {/* Scroll indicator */}
-        <div className="mt-16 flex flex-col items-center gap-2">
-          <span className="text-[10px] tracking-[0.3em] uppercase text-white/40">
-            Scroll for more
-          </span>
-          <div className="w-px h-12 bg-gradient-to-b from-white/60 to-transparent" />
-        </div>
-      </main>
-      </section>
-
-      {/* Spacer - enables scroll; video (fixed, z-0) shows through */}
-      <div className="relative -z-10 min-h-screen" aria-hidden />
+      {/* In-flow height so the page scrolls; fixed hero stays behind until you pass this */}
+      <div className="h-dvh shrink-0" aria-hidden />
+      <Section02 />
+      <Section03 />
+      <Section04 />
+      <Section05 />
+      <Section06 />
+      <Section07 />
+      <Footer />
     </div>
   );
 }
