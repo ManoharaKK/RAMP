@@ -1,7 +1,7 @@
 'use client';
 
-import Button from './button/Button';
-import RampMarquee from './RampMarquee';
+import { useEffect, useState, useRef } from 'react';
+import YouTube from 'react-youtube';
 
 const YOUTUBE_VIDEO_ID = 'TnFWNk9rw40';
 
@@ -24,17 +24,33 @@ export default function AutoPlayVideo() {
         }} />
       </div>
 
-      {/* Mobile: full viewport height, 16:9 cover (crop). Desktop: container + letterboxed 16:9 */}
-      <div className="absolute inset-0 z-1 overflow-hidden bg-black lg:flex lg:items-center lg:justify-center">
-        <div className="relative h-full min-h-dvh w-full overflow-hidden bg-black lg:container-global lg:min-h-0 lg:h-auto lg:w-full">
-          <div className="relative h-full w-full overflow-hidden bg-black lg:aspect-video lg:h-auto">
-            <iframe
-              src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&rel=0&controls=0&showinfo=0&loop=1&playlist=${YOUTUBE_VIDEO_ID}&playsinline=1`}
-              title="Parkour video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="pointer-events-none absolute border-0 max-lg:left-1/2 max-lg:top-1/2 max-lg:h-[56.25vw] max-lg:min-h-full max-lg:w-screen max-lg:min-w-[177.77vh] max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 lg:inset-0 lg:h-full lg:w-full lg:min-h-0 lg:min-w-0 lg:translate-x-0 lg:translate-y-0"
-            />
+      {shouldPlay && (
+        <>
+          <p className="relative font-[var(--font-bebas)] text-xs md:text-base tracking-[0.2em] md:tracking-[0.4em] text-white/60 uppercase z-10 text-center max-w-full">
+            Run. Jump. Own the street.
+          </p>
+          <div className="relative w-full max-w-4xl aspect-video shrink-0 z-10">
+            <div className="w-full h-full bg-black border-4 border-white rounded-xl shadow-lg">
+              <YouTube
+                videoId={YOUTUBE_VIDEO_ID}
+                className="w-full h-full rounded-xl"
+                opts={{
+                  width: '100%',
+                  height: '100%',
+                  playerVars: {
+                    autoplay: 1,
+                    mute: 1,
+                    rel: 0,
+                    controls: 0,
+                    showinfo: 0,
+                    modestbranding: 1,
+                    loop: 1,
+                    playlist: YOUTUBE_VIDEO_ID,
+                  },
+                }}
+                onEnd={(e) => e.target.playVideo()}
+              />
+            </div>
           </div>
         </div>
       </div>
