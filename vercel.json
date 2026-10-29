@@ -1,0 +1,10 @@
+
+{
+  "redirects": [
+    {
+      "source": "/go",
+      "destination": "https://github.com/Venath/RAMP",
+      "permanent": false
+    }
+  ]
+}
