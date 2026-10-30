@@ -48,7 +48,7 @@ export default function Home() {
           Street Parkour
         </p>
         <h1 className="font-[var(--font-bebas)] text-[clamp(3rem,12vw,8rem)] leading-[0.95] tracking-tight">
-          COMING SOON
+          COMING SOON..
         </h1>
         <p className="mt-6 text-white/60 text-base md:text-lg max-w-md">
           Something raw is dropping. Stay tuned.
